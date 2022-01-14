@@ -1,60 +1,46 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+<template>    
+    <div>
+        <h1>{{ titulo1 }}</h1>
+        <img v-bind:src="imagem.link" v-bind:alt="imagem.alt">       
+
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  data () {
+data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+        titulo1: 'Minha Imagem',
+        imagem: {
+            link: 'https://images.nintendolife.com/2ba45e322a8c5/dread-wallpaper1.large.jpg',
+            alt: 'Samus Aran in armor'
+        }        
     }
-  }
+}
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
 }
 
-h1, h2 {
-  font-weight: normal;
+img {
+    max-width: 100%;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+div {
+    text-align: center;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
+h1 {
+    background-color: orange;
+    padding: 2em 0
 }
 
-a {
-  color: #42b983;
+img {
+    padding: 1em;
 }
 </style>
