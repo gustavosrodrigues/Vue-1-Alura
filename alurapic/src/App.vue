@@ -3,7 +3,7 @@
         <h1>{{ titulo1 }}</h1>
         <ul >
             <li v-for="imagem of imagens" :key="imagem.alt">
-                <img v-bind:src="imagem.link" v-bind:alt="imagem.alt">
+                <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
             </li>            
         </ul>        
     </div>
@@ -13,18 +13,16 @@
 export default {
     data () {
         return {
-            titulo1: 'Metroid',
-            imagens: [
-                {
-                    link: 'https://images.nintendolife.com/2ba45e322a8c5/dread-wallpaper1.large.jpg',
-                    alt: 'Samus Aran in armor with shadow figure in background'
-                },
-                {
-                    link: 'https://sm.ign.com/ign_br/blogroll/default/metroid-dread-1625074657027-1635388627290_xzs9.jpg',
-                    alt: 'Samus Aran in armor with robots in background'
-                }                    
-            ]
+            titulo1: 'Metroide',
+            imagens: []
         }
+    },
+
+    created() {
+
+        this.$http.get('http://localhost:3000/v1/fotos')
+            .then(res => res.json())
+            .then(fotos => this.imagens = fotos);
     }
 }
 </script>
