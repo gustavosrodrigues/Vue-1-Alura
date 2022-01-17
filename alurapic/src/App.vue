@@ -5,7 +5,7 @@
             <li v-for="imagem of imagens" :key="imagem.alt">
                 <img v-bind:src="imagem.link" v-bind:alt="imagem.alt">
             </li>            
-        </ul>
+        </ul>        
     </div>
 </template>
 
@@ -37,11 +37,15 @@ export default {
 }
 
 img {
-    max-width: 100%;
+    max-width: 100%;    
 }
 
 div {
     text-align: center;
+}
+
+ul {
+    list-style: none;
 }
 
 h1 {
@@ -50,6 +54,6 @@ h1 {
 }
 
 img {
-    padding: 1em;
+    padding: 1em;    
 }
 </style>
