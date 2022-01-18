@@ -1,14 +1,14 @@
 <template>        
     <div class="painel">
-        <h2 class="painel__titulo"></h2>
+        <h2 class="painel__titulo">{{ titulo }}</h2>
         <div class="painel__corpo">            
         </div>
     </div>    
 </template>
 
 <script>
-export default {
-    
+export default {    
+    props: ['titulo']
 }
 </script>
 
