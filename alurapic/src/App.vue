@@ -1,11 +1,18 @@
 <template>    
-    <div>
-        <h1>{{ titulo1 }}</h1>
-        <ul >
-            <li v-for="imagem of imagens" :key="imagem.alt">
-                <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
-            </li>            
-        </ul>        
+    <div class="corpo">
+        <div class="container">
+            <h1 class="centralizado">{{ titulo1 }}</h1>
+            <ul class="lista__fotos">
+                <li class="lista__fotos__item" v-for="imagem of imagens" :key="imagem.alt">
+                    <div class="painel">
+                        <h2 class="painel__titulo">{{ imagem.titulo }}</h2>
+                        <div class="painel__corpo">
+                            <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
+                        </div>
+                    </div>                
+                </li>            
+            </ul>
+        </div>        
     </div>
 </template>
 
@@ -13,7 +20,7 @@
 export default {
     data () {
         return {
-            titulo1: 'Metroide',
+            titulo1: 'Imagens',
             imagens: []
         }
     },
@@ -34,24 +41,62 @@ export default {
     box-sizing: border-box;    
 }
 
+html, .painel {
+    background-color: darkkhaki;
+}
+
 img {
     max-width: 100%;    
 }
 
-div {
+.corpo {
+    font-family: Helvetica, sans-serif;        
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+.centralizado {
+    padding: 2em;
     text-align: center;
 }
 
-ul {
-    list-style: none;
+.lista__fotos {
+    list-style: none;        
+    text-align: center;
 }
 
-h1 {
-    background-color: orange;
-    padding: 2em 0
+.lista__fotos .lista__fotos__item {
+    display: inline-block;
+  }
+
+.lista__fotos__item {
+    margin-bottom: 1rem;   
 }
 
-img {
-    padding: 1em;    
-}
+/* estilo do painel */ 
+
+   .painel {
+    padding: 0 auto;
+    border: solid 2px grey;
+    display: inline-block;
+    margin: 0.30em;
+    box-shadow: 5px 5px 10px grey;
+    width: 15em;
+    height: 100%;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .painel .painel__titulo {
+    text-align: center;
+    border: solid 2px;
+    background: lightblue;
+    margin: 0 0 1em 0;
+    padding: 0.75em;
+    text-transform: uppercase;
+  }
 </style>
