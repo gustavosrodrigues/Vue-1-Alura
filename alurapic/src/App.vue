@@ -1,15 +1,12 @@
 <template>    
     <div class="corpo">
-        <div class="container">
-            <h1 class="centralizado">{{ titulo1 }}</h1>
+        <h1 class="centralizado">{{ titulo1 }}</h1>
+        <div class="container">            
             <ul class="lista__fotos">
                 <li class="lista__fotos__item" v-for="imagem of imagens" :key="imagem.alt">
-                    <div class="painel">
-                        <h2 class="painel__titulo">{{ imagem.titulo }}</h2>
-                        <div class="painel__corpo">
-                            <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
-                        </div>
-                    </div>                
+                    <meu-painel v-bind:titulo="imagem.titulo">
+                        <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
+                    </meu-painel>                                  
                 </li>            
             </ul>
         </div>        
@@ -20,7 +17,7 @@
 export default {
     data () {
         return {
-            titulo1: 'Imagens',
+            titulo1: 'Alurapic',
             imagens: []
         }
     },
@@ -66,37 +63,19 @@ img {
 
 .lista__fotos {
     list-style: none;        
-    text-align: center;
+    /* text-align: center; */
+    
+    display: flex;
+    justify-content: center;    
+    flex-wrap: wrap;
+    
 }
 
-.lista__fotos .lista__fotos__item {
+/* .lista__fotos .lista__fotos__item {
     display: inline-block;
-  }
+} */
 
 .lista__fotos__item {
     margin-bottom: 1rem;   
 }
-
-/* estilo do painel */ 
-
-   .painel {
-    padding: 0 auto;
-    border: solid 2px grey;
-    display: inline-block;
-    margin: 0.30em;
-    box-shadow: 5px 5px 10px grey;
-    width: 15em;
-    height: 100%;
-    vertical-align: top;
-    text-align: center;
-  }
-
-  .painel .painel__titulo {
-    text-align: center;
-    border: solid 2px;
-    background: lightblue;
-    margin: 0 0 1em 0;
-    padding: 0.75em;
-    text-transform: uppercase;
-  }
 </style>
