@@ -1,8 +1,8 @@
 <template>        
     <div class="painel">
         <h2 class="painel__titulo">{{ titulo }}</h2>
-        <div class="painel__corpo">            
-        </div>
+        <slot class="painel__corpo">            
+        </slot>
     </div>    
 </template>
 
