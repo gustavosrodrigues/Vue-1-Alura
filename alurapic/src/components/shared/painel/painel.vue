@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* estilo do painel */ 
 
    .painel {
@@ -34,5 +34,9 @@ export default {
     margin: 0 0 1em 0;
     padding: 0.75em;
     text-transform: uppercase;
+  }
+
+  * {
+    box-shadow: 5px 5px 5px;
   }
 </style>
