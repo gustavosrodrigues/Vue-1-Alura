@@ -6,7 +6,7 @@
             <ul class="lista__fotos">
                 <li class="lista__fotos__item" v-for="imagem of imagensComFiltro" :key="imagem.alt">
                     <meu-painel v-bind:titulo="imagem.titulo">
-                        <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
+                        <imagem-responsiva v-bind:url="imagem.url" v-bind:alt="imagem.titulo"/>
                     </meu-painel>                                  
                 </li>            
             </ul>
@@ -15,13 +15,15 @@
 </template>
 
 <script>
-import Painel from './components/shared/painel/Painel.vue'
+import ImagemResponsiva from './components/shared/imagem-responsiva/ImagemResponsiva.vue';
+import Painel from './components/shared/painel/Painel.vue';
 
 export default {
     
     components: {
 
-        'meu-painel': Painel
+        'meu-painel': Painel,
+        'imagem-responsiva': ImagemResponsiva
     },
 
     data () {
@@ -62,10 +64,6 @@ export default {
 
 html, .painel {
     background-color: darkkhaki;
-}
-
-img {
-    max-width: 100%;    
 }
 
 .corpo {
