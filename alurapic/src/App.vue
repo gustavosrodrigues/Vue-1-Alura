@@ -4,7 +4,7 @@
         <div class="container">
             <input type="search" class="filtro" v-on:input="filtro = $event.target.value" placeholder="Filtre pelo título">            
             <ul class="lista__fotos">
-                <li class="lista__fotos__item" v-for="imagem of imagens" :key="imagem.alt">
+                <li class="lista__fotos__item" v-for="imagem of imagensComFiltro" :key="imagem.alt">
                     <meu-painel v-bind:titulo="imagem.titulo">
                         <img v-bind:src="imagem.url" v-bind:alt="imagem.alt">
                     </meu-painel>                                  
@@ -28,7 +28,19 @@ export default {
         return {
             titulo1: 'Alurapic',
             imagens: [],
-            filtro: []
+            filtro: ''
+        }
+    },
+
+    computed: {
+
+        imagensComFiltro() {
+            if (this.filtro) {
+                let exp = new RegExp(this.filtro.trim() ,'i');
+                return this.imagens.filter(imagem => exp.test(imagem.titulo));
+            } else {
+                return this.imagens;
+            }
         }
     },
 
