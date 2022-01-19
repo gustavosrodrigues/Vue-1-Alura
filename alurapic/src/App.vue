@@ -1,7 +1,8 @@
 <template>    
     <div class="corpo">
         <h1 class="centralizado">{{ titulo1 }}</h1>
-        <div class="container">            
+        <div class="container">
+            <input type="search" class="filtro" v-on:input="filtro = $event.target.value" placeholder="Filtre pelo título">            
             <ul class="lista__fotos">
                 <li class="lista__fotos__item" v-for="imagem of imagens" :key="imagem.alt">
                     <meu-painel v-bind:titulo="imagem.titulo">
@@ -26,7 +27,8 @@ export default {
     data () {
         return {
             titulo1: 'Alurapic',
-            imagens: []
+            imagens: [],
+            filtro: []
         }
     },
 
@@ -85,5 +87,9 @@ img {
 
 .lista__fotos__item {
     margin-bottom: 1rem;   
+}
+
+.filtro {
+    width: 100%;
 }
 </style>
