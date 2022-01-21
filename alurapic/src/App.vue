@@ -1,6 +1,8 @@
 <template>    
     <div class="corpo">
-        <p>página principal</p>
+
+        <router-view></router-view>
+        
     </div>
 </template>
 
