@@ -6,7 +6,7 @@
             <li class="lista__fotos__item" v-for="imagem of imagensComFiltro" :key="imagem.alt">
                 <meu-painel v-bind:titulo="imagem.titulo">
                     <imagem-responsiva v-bind:url="imagem.url" v-bind:alt="imagem.titulo"/>
-                    <meu-botao tipo="button" rotulo="REMOVER" v-on:botaoAtivado="remove(imagem)"/>
+                    <meu-botao tipo="button" rotulo="REMOVER" :confirmacao="true" estilo="perigo" v-on:botaoAtivado="remove(imagem)"/>
                 </meu-painel>                                  
             </li>            
         </ul>            
@@ -50,7 +50,7 @@ export default {
     methods: {
 
         remove(foto) {
-            
+
             alert(`${foto.titulo} removido!`)
         }
     },
