@@ -6,6 +6,7 @@
             <li class="lista__fotos__item" v-for="imagem of imagensComFiltro" :key="imagem.alt">
                 <meu-painel v-bind:titulo="imagem.titulo">
                     <imagem-responsiva v-bind:url="imagem.url" v-bind:alt="imagem.titulo"/>
+                    <meu-botao tipo="button" rotulo="REMOVER"/>
                 </meu-painel>                                  
             </li>            
         </ul>            
@@ -15,13 +16,15 @@
 <script>
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
 import Painel from '../shared/painel/Painel.vue';
+import Botao from '../shared/botao/Botao.vue';
 
 export default {
     
     components: {
 
         'meu-painel': Painel,
-        'imagem-responsiva': ImagemResponsiva
+        'imagem-responsiva': ImagemResponsiva,
+        'meu-botao': Botao
     },
 
     data () {
