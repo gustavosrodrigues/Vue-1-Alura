@@ -6,7 +6,7 @@
             <li class="lista__fotos__item" v-for="imagem of imagensComFiltro" :key="imagem.alt">
                 <meu-painel v-bind:titulo="imagem.titulo">
                     <imagem-responsiva v-bind:url="imagem.url" v-bind:alt="imagem.titulo"/>
-                    <meu-botao tipo="button" rotulo="REMOVER"/>
+                    <meu-botao tipo="button" rotulo="REMOVER" v-on:click.native="remove(imagem)"/>
                 </meu-painel>                                  
             </li>            
         </ul>            
@@ -43,6 +43,15 @@ export default {
                 return this.imagens.filter(imagem => exp.test(imagem.titulo));
             } else {
                 return this.imagens;
+            }
+        }
+    },
+
+    methods: {
+
+        remove(foto) {
+            if(confirm(`Deseja remover ${foto.titulo}`)) {
+                alert(`${foto.titulo} removido!`)
             }
         }
     },
